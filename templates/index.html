@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Capture</title>
+</head>
+<body>
+    <h1>Webcam Capture</h1>
+    <button id="startCapture">Start Capture</button>
+    <button id="stopCapture">Stop Capture</button>
+    <div>
+        <img id="videoFeed" src="{{ url_for('video_feed') }}" alt="Video Feed">
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const startCaptureButton = document.getElementById('startCapture');
+            const stopCaptureButton = document.getElementById('stopCapture');
+            const videoFeed = document.getElementById('videoFeed');
+
+            startCaptureButton.addEventListener('click', function() {
+                fetch('/start_capture')
+                    .then(response => response.text())
+                    .then(data => console.log(data))
+                    .catch(error => console.error(error));
+            });
+
+            stopCaptureButton.addEventListener('click', function() {
+                fetch('/stop_capture')
+                    .then(response => response.text())
+                    .then(data => console.log(data))
+                    .catch(error => console.error(error));
+            });
+
+            function updateVideoFeed() {
+                videoFeed.src = '/video_feed?' + new Date().getTime();
+            }
+
+            setInterval(updateVideoFeed, 1000); // Update the video feed every second
+        });
+    </script>
+</body>
+</html>
