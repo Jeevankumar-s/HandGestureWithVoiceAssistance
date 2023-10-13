@@ -22,10 +22,11 @@ fruits_sound = pygame.mixer.Sound(fruits_path)
 
 
 
-
+global_variable = None
 
 
 def getNumber(ar):
+    global global_variable
     s=""
     for i in ar:
        s+=str(ar[i]);
@@ -35,23 +36,28 @@ def getNumber(ar):
     elif(s=="01000"):
         water_sound.play()
         pygame.time.delay(int(water_sound.get_length() * 1000))
+        global_variable = water_sound
         return(1)
     elif(s=="01100"):
         food_sound.play()
         pygame.time.delay(int(food_sound.get_length() * 1000))
+        global_variable = food_sound
         return(2)
     elif(s=="01110"):
         sleepy_sound.play()
         pygame.time.delay(int(sleepy_sound.get_length() * 1000))
+        global_variable = sleepy_sound
         return(3)
     elif(s=="01111"):
         rest_sound.play()
         pygame.time.delay(int(rest_sound.get_length() * 1000))
+        global_variable = rest_sound
         return(4)
     elif(s=="11111"):
         fruits_sound.play()
         pygame.time.delay(int(fruits_sound.get_length() * 1000))
-        return(5) 
+        global_variable = fruits_sound
+        return(5)
     elif(s=="01001"):
         return(6)
     elif(s=="01011"):
