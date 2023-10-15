@@ -16,7 +16,7 @@ sleepy_sound = pygame.mixer.Sound(sleepy_path)
 
 rest_path = "rest_audio.opus"
 rest_sound = pygame.mixer.Sound(rest_path)
-#
+
 fruits_path = "fruits_audio.opus"
 fruits_sound = pygame.mixer.Sound(fruits_path)
 
@@ -62,7 +62,7 @@ def getNumber(ar):
         return(6)
     elif(s=="01011"):
         return(7)      
- 
+
 wcam,hcam=640,480
 cap=cv2.VideoCapture(0)
 cap.set(3,wcam)
@@ -105,5 +105,4 @@ while True:
     cv2.imshow("image",img)
     if(cv2.waitKey(1) & 0xFF== ord('q')):
         break
-
 
