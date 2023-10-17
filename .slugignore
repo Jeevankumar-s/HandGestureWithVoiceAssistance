@@ -1,0 +1,30 @@
+# Python-related files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+
+myenv
+
+# Environment and virtual environment files
+venv
+
+# Web development files
+*.log
+*.swp
+.DS_Store
+
+# Configuration and deployment files
+instance/
+config.py
+*.cfg
+
+# IDE-specific files and directories (customize for your IDE)
+.idea/
+.vscode/
+# Add other IDE-specific folders as needed
+
+# OS-generated files
+Thumbs.db
+desktop.ini
