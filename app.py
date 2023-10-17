@@ -5,6 +5,7 @@ import pygame
 import handTrackingModule as htm
 import time
 
+
 app = Flask(__name__)
 
 pygame.init()
