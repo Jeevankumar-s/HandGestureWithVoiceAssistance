@@ -5,10 +5,10 @@ __pycache__/
 *.pyd
 *.db
 
-myenv
+myenv/
 
 # Environment and virtual environment files
-venv
+venv/
 
 # Web development files
 *.log
