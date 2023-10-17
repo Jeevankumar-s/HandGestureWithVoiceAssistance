@@ -22,7 +22,6 @@ rest_sound = pygame.mixer.Sound(rest_path)
 
 fruits_path = "fruits_audio.opus"
 fruits_sound = pygame.mixer.Sound(fruits_path)
-global_variable=None
 
 # Define other sounds similarly
 
@@ -53,6 +52,7 @@ def video_stream():
             s += str(ar[i])
 
         if (s == "00000"):
+            global_variable = None
             return (0)
         elif (s == "01000"):
             # water_sound.play()
@@ -85,8 +85,10 @@ def video_stream():
             # pygame.time.delay(int(fruits_sound.get_length() * 1000))
             return (5)
         elif (s == "01001"):
+            global_variable = None
             return (6)
         elif (s == "01011"):
+            global_variable = None
             return (7)
 
     while is_capturing:
@@ -150,9 +152,11 @@ def stop_capture():
 @app.route('/sound')
 def sound_playing():
     global global_variable
-    global_variable.play()
-    pygame.time.delay(int(global_variable.get_length() * 1000))
-    return 'Sound Played'
+    # print(global_variable)
+    if global_variable is not None:
+        global_variable.play()
+        pygame.time.delay(int(global_variable.get_length() * 1000))
+        return global_variable
 
 if __name__ == '__main__':
     app.run(debug=True)

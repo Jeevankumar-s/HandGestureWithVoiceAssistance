@@ -13,29 +13,12 @@
     <h1>Webcam Capture</h1>
     <button id="startCapture">Start Capture</button>
     <button id="stopCapture">Stop Capture</button>
-   <button id="listeningButton" onclick="playSound()">Listen</button>
+ <button id="listenButton"><a href="{{ url_for('sound_playing') }}">Listen</a></button>
     <div>
         <img id="videoFeed" src="{{ url_for('video_feed') }}" alt="Video Feed">
     </div>
     <script>
-        function playSound() {
-    // Replace this with your gesture recognition logic
-    var numberOfFingers = getNumberOfFingers(); // Implement this function
-
-    // Determine which sound to play based on the number of fingers
-    var soundId;
-    if (numberOfFingers === 1) {
-      soundId = "waterSound";
-    } else {
-      soundId = "otherSound";
-    }
-
-    // Play the selected sound
-    var sound = document.getElementById(soundId);
-    sound.play();
-  }
-
-        document.addEventListener('DOMContentLoaded', function() {
+               document.addEventListener('DOMContentLoaded', function() {
             const startCaptureButton = document.getElementById('startCapture');
             const stopCaptureButton = document.getElementById('stopCapture');
             const videoFeed = document.getElementById('videoFeed');
